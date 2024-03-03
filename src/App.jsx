@@ -4,7 +4,7 @@ import worldMap from './assets/world_map.png';
 
 import { GetAllCountries } from './api/GetAllCountries.js';
 import {useEffect, useState} from "react";
-import {GetCountriesDetails} from "./Components/GetCountryDetails.js";
+import {GetCountriesDetails} from "./helpers/getCountryDetails.js";
 import {sortCountriesByPopulationAsc, sortCountriesByPopulationDesc} from "./helpers/sortCountriesByPopulation.js";
 import regionColorCode from "./helpers/regionColorCode.js";
 import SearchBar from "./Components/SearchBar/SearchBar.jsx";
@@ -66,7 +66,7 @@ function App() {
                             <div className="country" key={index} style={{ color: regionColorCode(country.region) }}>
                                 <h2>{country.name.common}</h2>
                                 <img src={country.flags} alt={country.name + " flag"}/>
-                                <p>{country.name.common} is situated in {country.region} and the capital is {country.capital}</p>
+                                <p>{country.name.common} is situated in {country.region} and the capital is {country.capital === 'not defined' ? <em>{country.capital}</em> : country.capital}</p>
                                 <p>It has a population of {country.population} million people and it borders with {country.borders} neighboring countries</p>
                                <p>Websites can be found on {country.tld} domain's</p>
                             </div>

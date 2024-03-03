@@ -1,4 +1,4 @@
-import {roundOffPopulation} from "../helpers/roundOfPopulation.js";
+import {roundOffPopulation} from "./roundOfPopulation.js";
 
 export const GetCountriesDetails = (countries) => {
 
@@ -6,9 +6,9 @@ export const GetCountriesDetails = (countries) => {
         return countries.map(country => {
             let capital;
             if (country.capital && Array.isArray(country.capital)) {
-                capital = country.capital[0] ? country.capital[0] : 'Unknown';
+                capital = country.capital[0] ? country.capital[0] : 'not defined';
             } else {
-                capital = country.capital ? country.capital : 'Unknown';
+                capital = country.capital ? country.capital : 'not defined';
             }
 
             let borderCount = 0;
@@ -20,9 +20,9 @@ export const GetCountriesDetails = (countries) => {
 
             let tld;
             if (country.tld && Array.isArray(country.tld)) {
-                tld = country.tld[0] ? country.tld[0] : 'Unknown';
+                tld = country.tld[0] ? country.tld[0] : 'not defined';
             } else {
-                tld = 'Unknown';
+                tld = 'not defined';
             }
 
         return {
